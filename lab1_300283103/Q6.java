@@ -20,6 +20,8 @@ public class Q6{
             System.out.println(grades[j]);
         }
 		System.out.println("The class average is: " + calculateAverage(grades));
+        System.out.println(calculateNumberFailed(grades)+ " students have failed.");
+        System.out.println(calculateNumberPassed(grades) + " students have passed.");
 		System.out.println("The class median is: " + calculateMedian(grades));
 
 		
@@ -35,32 +37,36 @@ public class Q6{
 	}
 
 	public static double calculateMedian(double[] notes){
-		int i, j, argMin; 
-		double tmp;
-		for (i=0; i <notes.length -1; i++) {
-			argMin = i;
-			for(j = i+ 1; j<notes.length; j++){
-				if (notes[j] < notes[argmin]){
-					argMin= j;
-				}
-			}
-			tmp = notes[argMin];
-			notes[argMin] = notes[i];
-			notes[i] = tmp;
-		}
-		
-		double answer = notes[((notes.length) /2)];
-		return answer;
-		
-		
+		int size=notes.length;
+        double temp;
+        for (int i = 0; i < size; i++){
+            for (int j = i + 1; j<size; j++){
+                if(notes[i] > notes[j]){
+                    temp = notes[i];
+                    notes[i] = notes[j];
+                    notes[j] = temp;
+                }
+            }
+        }
+        int index1 = size/2;
+        int index2 = index1 + 1;
+        double median = ((notes[index1] + notes[index2])/2);
+        return median;
+        
 	}
 
 	public static int calculateNumberFailed(double[] notes){
-		//your code here
+		int counter = 0;
+        for(int i =0; i<notes.length;i++){
+            if (notes[i] < 50.00){
+                counter++;
+            }
+        }
+        return counter;
 	}
 
 	public static int calculateNumberPassed(double[] notes){
-		//your code here
+		return (notes.length - calculateNumberFailed(notes));
 	}
 
 }
