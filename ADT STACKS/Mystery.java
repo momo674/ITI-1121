@@ -1,12 +1,16 @@
 public class Mystery {
-    public static void main (String[] args){
-        Stack <String> stack = new StackImplementation <String>();
-        for (int i = 0; i <args.length(); i++){
-            stack.push(args[i]);
-        }
-
-        while (! stack.empty()){
-            System.out.print(stack.pop())
-        }
-    }
+	public static void main(String[] args) {
+		Stack myStack = new StackImplementation(100);
+		
+		for (int i = 0; i < args.length; i++) {
+			myStack.push(args[i]);
+		}
+		
+		while (!myStack.isEmpty()) {
+			System.out.print((String)myStack.pop() + " ");
+			
+		}
+		
+		System.out.println();
+	}
 }

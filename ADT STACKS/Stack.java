@@ -1,14 +1,7 @@
-// public interface Stack{
-//     public abstract boolean isEmpty();
-//     public abstract Object push(Object o);
-//     public abstract Object pop();
-//     public abstract Object peek();
-// }
-
-public interface Stack<E> {
-    public abstract boolean isEmpty();
-    public abstract E push( E elem );
-    public abstract E pop();
-    public abstract E peek();
+public interface Stack <E>{
+	public abstract boolean isEmpty();
+	public abstract void push(E elem);
+	public abstract E pop();
+	public abstract E peek();
+	//public abstract is not needed
 }
-// an interface can also be paramterized
